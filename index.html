@@ -1,3 +1,41 @@
-Hey! Seems you still are using WWW. 
-This server has moved away from the www subdomain. Please clear all data your browser has saved from the website and go to:
-<a href="https://clockwise3000.online/">https://clockwise3000.online/</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script>
+        const currentPathAndQuery = window.location.pathname + window.location.search + window.location.hash;
+        
+        const targetBase = "https://clockwise3000.online";
+        
+        const redirectUrl = targetBase + currentPathAndQuery;
+
+        window.location.replace(redirectUrl);
+    </script>
+
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=https://clockwise3000.online/">
+    </noscript>
+</head>
+<body>
+
+    <p>
+        Hey! Seems you still are using WWW. <br>
+        This server has moved away from the www subdomain. Please clear all data your browser has saved from the website and go to:
+        <a id="redirect-link" href="https://clockwise3000.online/">https://clockwise3000.online/</a>
+        <br>
+        If you had enough time to read all that the automatic redirect did not work. Please use the url provided above
+    </p>
+
+    <script>
+        // Dynamically update the visual link and href to reflect the exact target URL with the path
+        const linkElement = document.getElementById("redirect-link");
+        if (linkElement) {
+            linkElement.href = redirectUrl;
+            linkElement.textContent = redirectUrl;
+        }
+    </script>
+
+</body>
+</html>
